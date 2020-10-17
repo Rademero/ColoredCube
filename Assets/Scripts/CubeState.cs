@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CubeState : MonoBehaviour
 {
-
+    //gets the sides of the cube
     public List<GameObject> front = new List<GameObject>();
     public List<GameObject> back = new List<GameObject>();
     public List<GameObject> up = new List<GameObject>();
