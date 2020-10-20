@@ -4,8 +4,9 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
-public class leaderboard : MonoBehaviour
+public class Leaderboard : MonoBehaviour
 {
     public List<string> times = new List<string>();
     
@@ -35,8 +36,8 @@ public class leaderboard : MonoBehaviour
                 // the file is reached.
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine("Loading times...");      //Debug statement
-                    Console.WriteLine(line);                    //Debug statement
+                    print("Loading times...");      //Debug statement
+                    print(line);                    //Debug statement
                     times.Add(line);
                 }
             }
@@ -44,8 +45,8 @@ public class leaderboard : MonoBehaviour
         catch (Exception e)
         {
             // Let the user know what went wrong.
-            Console.WriteLine("The file could not be read:");
-            Console.WriteLine(e.Message);
+            print("The file could not be read:");
+            print(e.Message);
         }
     }
 

@@ -4,18 +4,19 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class timer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
 
     Text text;
     float time;
     bool playing;
-    
+    public Leaderboard lb;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<Text>();
         playing = true; //THIS IS FOR DEMONSTRATION ONLY
+        lb.LoadTimes();
     }
 
     // Update is called once per frame
