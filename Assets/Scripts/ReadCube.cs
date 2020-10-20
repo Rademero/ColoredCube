@@ -100,7 +100,7 @@ public class ReadCube : MonoBehaviour
             {
                 Debug.DrawRay(ray, rayTransform.forward * hit.distance, Color.yellow);
                 facesHit.Add(hit.collider.gameObject);//adds to list to check color
-                print(hit.collider.gameObject.name);
+                //print(hit.collider.gameObject.name);
             }
             else//not hitting the cube
             {
