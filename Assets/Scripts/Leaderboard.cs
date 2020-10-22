@@ -9,11 +9,15 @@ using System.Runtime.InteropServices;
 public class Leaderboard : MonoBehaviour
 {
     public List<string> times = new List<string>();
-    
+    string path = "Assets/times.txt";
+
     // Start is called before the first frame update
     void Start()
     {
-        //This is blank for now
+        //If file does not exist, write a new one with all "worst" times
+        if (!File.Exists(path)) {
+            System.IO.File.WriteAllText(path, "59:59\n59:59\n59:59\n59:59\n59:59");
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class Leaderboard : MonoBehaviour
         {
             // Create an instance of StreamReader to read from a file.
             // The using statement also closes the StreamReader.
-            using (StreamReader sr = new StreamReader("Assets/times.txt"))
+            using (StreamReader sr = new StreamReader(path))
             {
                 string line;
                 // Read and display lines from the file until the end of
@@ -69,6 +73,6 @@ public class Leaderboard : MonoBehaviour
         times.Clear();
 
         //Write the text to the file!
-        System.IO.File.WriteAllText("Assets/times.txt", content);
+        System.IO.File.WriteAllText(path, content);
     }
 }
