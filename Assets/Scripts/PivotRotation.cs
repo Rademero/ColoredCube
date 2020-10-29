@@ -47,7 +47,7 @@ public class PivotRotation : MonoBehaviour
         Vector3 mouseOffset = (Input.mousePosition - mouseRef);
 
         if (side == cubeState.front) {
-            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
         }
         if (side == cubeState.up)
         {
@@ -70,6 +70,8 @@ public class PivotRotation : MonoBehaviour
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
         }
         transform.Rotate(rotation, Space.Self);
+       
+       
 
         mouseRef = Input.mousePosition;
     }
