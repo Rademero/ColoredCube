@@ -5,19 +5,28 @@ using UnityEngine;
 public class RandomizationAlgorithm : MonoBehaviour
 {
     public Transform cube;
+    private int maxMoves = 64;
+    private int numMoves = 0;
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        float random;
+        if (numMoves < maxMoves)
+        {
+            random = Random.Range(-1.0f, 5.0f);
+            print(random);
+            //chooseCommand(random);
+            numMoves = numMoves + 1;
+        }
+
+        /*   if(Input.GetKey("z"))
+         * {
+         *    random = Random.Range(-1.0f, 5.0f);
+         *       print(random);
+         *      chooseCommand(random);
+         * }
+         */
+
     }
+
 }
