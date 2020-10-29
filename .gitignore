@@ -60,5 +60,3 @@ crashlytics-build.properties
 
 # Ignore times.txt, which saves times on local machine.
 Assets/times.txt
-Assets/times.txt.meta
-
