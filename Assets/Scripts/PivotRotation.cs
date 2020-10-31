@@ -23,7 +23,7 @@ public class PivotRotation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (dragging)
         {
@@ -111,5 +111,20 @@ public class PivotRotation : MonoBehaviour
             dragging = false;
 
         }
+    }
+
+    public List<GameObject> getActiveSide()
+    {
+        return activeSide;
+    }
+
+    public void setActiveSide(List<GameObject> side)
+    {
+        activeSide = side;
+    }
+
+    public void setMouseRef(Vector3 mouse)
+    {
+        mouseRef = mouse;
     }
 }
