@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PivotRotation : MonoBehaviour
@@ -36,7 +38,7 @@ public class PivotRotation : MonoBehaviour
         }
         if (autoRotating)
         {
-            AutoRotate();
+           //AutoRotate();
         }
     }
 
@@ -69,7 +71,7 @@ public class PivotRotation : MonoBehaviour
         {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
         }
-        transform.Rotate(rotation, Space.Self);
+        transform.RotateAround(Vector3.zero, Vector3.forward, 1);
        
        
 
