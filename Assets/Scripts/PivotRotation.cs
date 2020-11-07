@@ -17,6 +17,7 @@ public class PivotRotation : MonoBehaviour
     private Quaternion targetQuaternion;
     private ReadCube readCube;
     private CubeState cubeState;
+    public Transform Center;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,18 +116,44 @@ public class PivotRotation : MonoBehaviour
         }
     }
 
+    public void randomRotate(List<GameObject> side, Vector3 mouseOffset)
+    {
+        rotation = Vector3.zero;
+
+        print("Entered randomRotation in pivot.");
+        print(side);
+
+        if (side == cubeState.front)
+        {
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+        }
+        if (side == cubeState.up)
+        {
+            rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+        }
+        if (side == cubeState.back)
+        {
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+        }
+        if (side == cubeState.down)
+        {
+            rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+        }
+        if (side == cubeState.left)
+        {
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+        }
+        if (side == cubeState.right)
+        {
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+        }
+
+        transform.RotateAround(Vector3.zero, Vector3.forward, 1);
+
+    }
+
     public List<GameObject> getActiveSide()
     {
         return activeSide;
-    }
-
-    public void setActiveSide(List<GameObject> side)
-    {
-        activeSide = side;
-    }
-
-    public void setMouseRef(Vector3 mouse)
-    {
-        mouseRef = mouse;
     }
 }

@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class RandomizationAlgorithm : MonoBehaviour
 {
-    public Transform cube;
     // The number of moves it does for randomization of the cube.
-    private int maxMoves = 64;
+    private int maxMoves = 15;
     // Counter used for the rotations.
     private int numMoves = 0;
 
     Vector3 mouse;
 
-    public PivotRotation pivot;
-
+    private PivotRotation pivot;
     List<GameObject> activeSide;
+    private CubeState cubeState;
+
+    void Start()
+    {
+        pivot = FindObjectOfType<PivotRotation>();
+        cubeState = FindObjectOfType<CubeState>();
+    }
 
 
     void Update()
@@ -23,9 +28,9 @@ public class RandomizationAlgorithm : MonoBehaviour
         float random;
         if (numMoves < maxMoves)
         {
-            random = Random.Range(-1.0f, 5.0f);
+            random = Random.Range(1.0f, 5.0f);
             print(random);
-            //chooseCommand(random);
+            chooseCommand(random);
             numMoves = numMoves + 1;
         }
 
@@ -48,27 +53,27 @@ public class RandomizationAlgorithm : MonoBehaviour
         // Rotate Up
         if(num > 4.0f)
         {
-            mouse = Vector3.up;
+            mouse = (Vector3.up * 90);
         }
         // Rotate down
         if(num <= 4.0f && num > 3.0f)
         {
-            mouse = Vector3.down;
+            mouse = (Vector3.down * 90);
         }
         // Rotate right
         if(num <= 3.0f && num > 2.0f)
         {
-            mouse = Vector3.right;
+            mouse = (Vector3.right * 90);
         }
         // Rotate left
         if(num <= 2.0f && num >= 1.0f)
         {
-            mouse = Vector3.left;
+            mouse = (Vector3.left * 90);
+            
         }
 
-        pivot.setMouseRef(mouse);
-
-        pivot.Update();
+        activeSide = cubeState.front;
+        pivot.randomRotate(activeSide, mouse);
 
     }
 
