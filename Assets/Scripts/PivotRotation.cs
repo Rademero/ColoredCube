@@ -27,6 +27,7 @@ public class PivotRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
         if (dragging)
         {
             SpinSide(activeSide);
@@ -36,9 +37,14 @@ public class PivotRotation : MonoBehaviour
                 RotateToRightAngle();
             }
         }
+        if(activeSide == cubeState.front)
+        {
+            print("did it");
+            transform.position.Set((float) -55.60972, (float) 34.126, (float) -2.573);
+        }
         if (autoRotating)
         {
-           //AutoRotate();
+           AutoRotate();
         }
     }
 
@@ -49,7 +55,9 @@ public class PivotRotation : MonoBehaviour
         Vector3 mouseOffset = (Input.mousePosition - mouseRef);
 
         if (side == cubeState.front) {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
+            transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
         }
         if (side == cubeState.up)
         {
@@ -57,7 +65,8 @@ public class PivotRotation : MonoBehaviour
         }
         if (side == cubeState.back)
         {
-            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
         }
         if (side == cubeState.down)
         {
@@ -71,9 +80,9 @@ public class PivotRotation : MonoBehaviour
         {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
         }
-        transform.RotateAround(Vector3.zero, Vector3.forward, 1);
-       
-       
+        
+
+      //  transform.Rotate(rotation, Space.Self);
 
         mouseRef = Input.mousePosition;
     }
@@ -83,7 +92,7 @@ public class PivotRotation : MonoBehaviour
         activeSide = side;
         mouseRef = Input.mousePosition;
         dragging = true;
-        localForward = Vector3.zero - side[4].transform.parent.transform.localPosition;
+      // localForward = Vector3.zero - side[4].transform.parent.transform.localPosition;
     }
 
     public void RotateToRightAngle()
@@ -102,9 +111,41 @@ public class PivotRotation : MonoBehaviour
     {
         dragging = false;
         var step = speed * Time.deltaTime;
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetQuaternion, step);
+        // transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetQuaternion, step);
 
-        if(Quaternion.Angle(transform.localRotation,targetQuaternion) <= 1)
+        //auto rotation for z rotation 
+        if (transform.rotation.z > 0)
+        {
+           
+            if (transform.rotation.z > 0.50 && transform.rotation.z < 1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.forward, 1);
+                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+            }
+            if(transform.rotation.z < .5 && transform.rotation.z > 0)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.forward, -1);
+                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+            }
+            
+        }
+        else
+        {
+            if (transform.rotation.z < -0.40 && transform.rotation.z > -1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.forward, -1);
+                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+            }
+            if (transform.rotation.z > -.40 && transform.rotation.z < 0)
+            {
+
+                transform.RotateAround(Vector3.zero, Vector3.forward, 1);
+                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+            }
+        }
+       
+
+        if (Quaternion.Angle(transform.localRotation,targetQuaternion) <= 1)
         {
             transform.localRotation = targetQuaternion;
             cubeState.putDown(activeSide, transform.parent);
