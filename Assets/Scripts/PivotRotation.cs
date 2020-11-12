@@ -17,11 +17,8 @@ public class PivotRotation : MonoBehaviour
     private Quaternion targetQuaternion;
     private ReadCube readCube;
     private CubeState cubeState;
-<<<<<<< HEAD
     public Transform Center;
-=======
     public Vector3 ogPositon = new Vector3();
->>>>>>> 7e502e17759f64d14982b53d7676fbff63297a50
     // Start is called before the first frame update
     void Start()
     {
