@@ -17,11 +17,19 @@ public class PivotRotation : MonoBehaviour
     private Quaternion targetQuaternion;
     private ReadCube readCube;
     private CubeState cubeState;
+    public Vector3 ogPositon = new Vector3();
     // Start is called before the first frame update
     void Start()
     {
         readCube = FindObjectOfType<ReadCube>();
         cubeState = FindObjectOfType<CubeState>();
+
+        if (activeSide == cubeState.front)
+        {
+            ogPositon.x = transform.position.x;
+            ogPositon.y = transform.position.z;
+            ogPositon.z = transform.position.z;
+        }
     }
 
     // Update is called once per frame
@@ -38,9 +46,9 @@ public class PivotRotation : MonoBehaviour
             }
         }
         if(activeSide == cubeState.front)
-        {
-            print("did it");
-            transform.position.Set((float) -55.60972, (float) 34.126, (float) -2.573);
+        { 
+           // transform.position.Set(ogPositon.x,ogPositon.y,ogPositon.z);
+            transform.position.Set(-55.60972f, 34.126f,-2.573f);
         }
         if (autoRotating)
         {
@@ -57,11 +65,12 @@ public class PivotRotation : MonoBehaviour
         if (side == cubeState.front) {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
             transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
-            transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+            transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
         }
         if (side == cubeState.up)
         {
             rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.up, rotation.y);
         }
         if (side == cubeState.back)
         {
@@ -71,18 +80,22 @@ public class PivotRotation : MonoBehaviour
         if (side == cubeState.down)
         {
             rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.up, rotation.y);
         }
         if (side == cubeState.left)
         {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
         }
         if (side == cubeState.right)
         {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
-        }
-        
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
 
-      //  transform.Rotate(rotation, Space.Self);
+        }
+
+
+        //  transform.Rotate(rotation, Space.Self);
 
         mouseRef = Input.mousePosition;
     }
@@ -113,37 +126,97 @@ public class PivotRotation : MonoBehaviour
         var step = speed * Time.deltaTime;
         // transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetQuaternion, step);
 
-        //auto rotation for z rotation 
+        //auto rotation for front and back
         if (transform.rotation.z > 0)
         {
            
-            if (transform.rotation.z > 0.50 && transform.rotation.z < 1)
+            if (transform.rotation.z >= 0.45 && transform.rotation.z < 1)
             {
                 transform.RotateAround(Vector3.zero, Vector3.forward, 1);
-                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
-            if(transform.rotation.z < .5 && transform.rotation.z > 0)
+            if (transform.rotation.z < 0.45 && transform.rotation.z > 0)
             {
                 transform.RotateAround(Vector3.zero, Vector3.forward, -1);
-                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
-            
+
         }
-        else
+        else if (transform.rotation.z < 0)
         {
-            if (transform.rotation.z < -0.40 && transform.rotation.z > -1)
+            if (transform.rotation.z <= -0.45 && transform.rotation.z > -1)
             {
                 transform.RotateAround(Vector3.zero, Vector3.forward, -1);
-                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
-            if (transform.rotation.z > -.40 && transform.rotation.z < 0)
+            if (transform.rotation.z > -0.45 && transform.rotation.z < 0)
             {
 
                 transform.RotateAround(Vector3.zero, Vector3.forward, 1);
-                transform.position.Set((float)-55.60972, (float)34.126, (float)-2.573);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
         }
-       
+        //Up and Down auto rotate
+        if (transform.rotation.y > 0)
+        {
+
+            if (transform.rotation.y >= 0.45 && transform.rotation.y < 1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.up, 1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+            if (transform.rotation.y < 0.45 && transform.rotation.y > 0)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.up, -1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+
+        }
+        else if (transform.rotation.y < 0)
+        {
+            if (transform.rotation.y <= -0.45 && transform.rotation.y > -1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.up, -1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+            if (transform.rotation.y > -0.45 && transform.rotation.y < 0)
+            {
+
+                transform.RotateAround(Vector3.zero, Vector3.up, 1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+        }
+        //Needs work x rotation for left and rifht side
+        if (transform.rotation.x > 0)
+        {
+
+            if (transform.rotation.x >= 0.45 && transform.rotation.x < 1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.left, 1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+            if (transform.rotation.x < 0.45 && transform.rotation.x > 0)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.left, -1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+
+        }
+        else if (transform.rotation.x < 0)
+        {
+            if (transform.rotation.x <= -0.45 && transform.rotation.x > -1)
+            {
+                transform.RotateAround(Vector3.zero, Vector3.left, -1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+            if (transform.rotation.x > -0.45 && transform.rotation.x < 0)
+            {
+
+                transform.RotateAround(Vector3.zero, Vector3.left, 1);
+                transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
+            }
+        }
+
 
         if (Quaternion.Angle(transform.localRotation,targetQuaternion) <= 1)
         {
