@@ -234,35 +234,46 @@ public class PivotRotation : MonoBehaviour
     {
         rotation = Vector3.zero;
 
-        print("Entered randomRotation in pivot.");
-        print(side);
+        //print("Entered randomRotation in pivot.");
+        //print(side);
 
         if (side == cubeState.front)
         {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
+            transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
         }
         if (side == cubeState.up)
         {
             rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.up, rotation.y);
         }
         if (side == cubeState.back)
         {
-            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
         }
         if (side == cubeState.down)
         {
             rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Vector3.zero, Vector3.up, rotation.y);
         }
         if (side == cubeState.left)
         {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
         }
         if (side == cubeState.right)
         {
-            rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
+            transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
+
         }
 
-        transform.RotateAround(Vector3.zero, Vector3.forward, 1);
+
+        RotateToRightAngle();
+        AutoRotate();
+        //transform.RotateAround(Vector3.zero, Vector3.forward, 1);
 
     }
 

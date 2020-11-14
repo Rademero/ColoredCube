@@ -5,49 +5,90 @@ using UnityEngine;
 public class RandomizationAlgorithm : MonoBehaviour
 {
     // The number of moves it does for randomization of the cube.
-    private int maxMoves = 15;
+    private int maxMoves = 64;
     // Counter used for the rotations.
     private int numMoves = 0;
 
     Vector3 mouse;
 
-    private PivotRotation pivot;
+    //private PivotRotation pivot;
+    public PivotRotation pivotD;
+    public PivotRotation pivotC;
+    public PivotRotation pivotU;
     List<GameObject> activeSide;
     private CubeState cubeState;
 
     void Start()
     {
-        pivot = FindObjectOfType<PivotRotation>();
+        //pivot = FindObjectOfType<PivotRotation>();
         cubeState = FindObjectOfType<CubeState>();
     }
 
 
     void Update()
     {
-        
-        float random;
         if (numMoves < maxMoves)
         {
-            random = Random.Range(1.0f, 5.0f);
-            print(random);
-            chooseCommand(random);
+            //chooseSide();
+            //chooseCommand();
             numMoves = numMoves + 1;
         }
 
         // Used for testing purposes 
         if (Input.GetKey("z"))
         {
-            random = Random.Range(1.0f, 5.0f);
-            print(random);
-            //chooseCommand(random);
+            chooseSide();
+            chooseCommand();
         }
 
 
     }
 
-    // Chooses how to rotate the cube.
-    void chooseCommand(float num)
+    void chooseSide()
     {
+        float ran = Random.Range(0.0f, 6.0f);
+
+        // Front side
+        if (ran > 5.0f)
+        {
+            activeSide = cubeState.front;
+        }
+        // Up side
+        if (ran <= 5.0f && ran > 4.0f)
+        {
+            activeSide = cubeState.up;
+        }
+        // Back side
+        if (ran <= 4.0f && ran > 3.0f)
+        {
+            activeSide = cubeState.back;
+        }
+        // Down side
+        if (ran <= 3.0f && ran > 2.0f)
+        {
+            activeSide = cubeState.down;
+        }
+        // Left side
+        if (ran <= 2.0f && ran > 1.0f)
+        {
+            activeSide = cubeState.left;
+
+        }      
+        // Right side
+        if (ran <= 1.0f)
+        {
+            activeSide = cubeState.right;
+
+        }
+
+    }
+
+    // Chooses how to rotate the cube.
+    void chooseCommand()
+    {
+
+        float num = Random.Range(1.0f, 5.0f);
+
         mouse = Vector3.zero;
 
         // Rotate Up
@@ -73,7 +114,7 @@ public class RandomizationAlgorithm : MonoBehaviour
         }
 
         activeSide = cubeState.front;
-        pivot.randomRotate(activeSide, mouse);
+        pivotD.randomRotate(activeSide, mouse);
 
     }
 

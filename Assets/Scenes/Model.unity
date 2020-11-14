@@ -1670,6 +1670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02c0b906c0a08343acda54f29279964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &162997430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &293867736
 GameObject:
   m_ObjectHideFlags: 0
@@ -16058,12 +16061,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248911913}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d02c0b906c0a08343acda54f29279964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1250096357
 GameObject:
   m_ObjectHideFlags: 0
@@ -16413,6 +16417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1265565829}
+  - component: {fileID: 1265565830}
   m_Layer: 0
   m_Name: D
   m_TagString: Untagged
@@ -16456,11 +16461,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265565828}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d02c0b906c0a08343acda54f29279964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1307457196
 GameObject:
   m_ObjectHideFlags: 0
@@ -18987,6 +18994,7 @@ GameObject:
   - component: {fileID: 1531106678}
   - component: {fileID: 1531106677}
   - component: {fileID: 1531106676}
+  - component: {fileID: 1531106679}
   m_Layer: 0
   m_Name: Cube (27)
   m_TagString: Untagged
@@ -19070,6 +19078,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531106674}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1531106679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531106674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02c0b906c0a08343acda54f29279964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1535088641
 GameObject:
   m_ObjectHideFlags: 0
@@ -20452,6 +20474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1666703332
 GameObject:
   m_ObjectHideFlags: 0
@@ -22762,6 +22785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1793375583
 GameObject:
   m_ObjectHideFlags: 0
@@ -25246,6 +25270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &1985710981
 GameObject:
   m_ObjectHideFlags: 0
@@ -25703,6 +25728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!114 &2025964202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25716,6 +25742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
+  ogPositon: {x: 0, y: 0, z: 0}
 --- !u!1 &2036175775
 GameObject:
   m_ObjectHideFlags: 0
@@ -26279,6 +26306,7 @@ GameObject:
   - component: {fileID: 2084834769}
   - component: {fileID: 2084834768}
   - component: {fileID: 2084834770}
+  - component: {fileID: 2084834771}
   m_Layer: 0
   m_Name: Rubiks Cube
   m_TagString: Untagged
@@ -26359,6 +26387,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d679ffcdea6584e866be4c0234ab6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2084834771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084834766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b548a3129a1964249a434e079f9e563a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotD: {fileID: 278062880}
+  pivotC: {fileID: 1531106679}
+  pivotU: {fileID: 146094031}
 --- !u!1 &2108770773
 GameObject:
   m_ObjectHideFlags: 0
