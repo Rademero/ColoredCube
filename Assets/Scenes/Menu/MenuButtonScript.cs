@@ -23,12 +23,10 @@ public class MenuButtonScript : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                timer.Stop();
                 ShowPaused();
             }
             else if (Time.timeScale == 0) {
                 Time.timeScale = 1;
-                timer.Play();
                 HidePaused();
             }
         }
@@ -41,12 +39,12 @@ public class MenuButtonScript : MonoBehaviour
 
     //Load the scene without Timer or Tutorial functionality
     public void PracticeButton() {
-        print("This scene is not yet implemented.");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PracticeMode");
     }
 
     //Load the scene with Tutorial functionality
     public void TutorialButton() {
-        print("This scene is not yet implemented.");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("TutorialMode");
     }
 
     //Terminate the game
@@ -57,7 +55,6 @@ public class MenuButtonScript : MonoBehaviour
 
     public void ResumeButton() {
         Time.timeScale = 1;
-        timer.Play();
         HidePaused();
     }
 
