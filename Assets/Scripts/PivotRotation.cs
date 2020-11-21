@@ -45,14 +45,19 @@ public class PivotRotation : MonoBehaviour
                 RotateToRightAngle();
             }
         }
-        if(activeSide == cubeState.front)
-        { 
-           // transform.position.Set(ogPositon.x,ogPositon.y,ogPositon.z);
-            transform.position.Set(-55.60972f, 34.126f,-2.573f);
-        }
         if (autoRotating)
         {
            AutoRotate();
+            ResetPos();
+        }
+    }
+
+    private void ResetPos()
+    {
+        if (activeSide == cubeState.front)
+        {
+            print("here");
+            transform.position.Set(0f, 0f, -0.9764986f);
         }
     }
 
@@ -65,7 +70,6 @@ public class PivotRotation : MonoBehaviour
         if (side == cubeState.front) {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
             transform.RotateAround(Vector3.zero, Vector3.forward, rotation.z);
-            transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
         }
         if (side == cubeState.up)
         {
@@ -86,11 +90,13 @@ public class PivotRotation : MonoBehaviour
         {
             rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
             transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
+            print(rotation.x);
         }
         if (side == cubeState.right)
         {
             rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
             transform.RotateAround(Vector3.zero, Vector3.left, rotation.x);
+            print(rotation.x);
 
         }
 
@@ -190,12 +196,12 @@ public class PivotRotation : MonoBehaviour
         if (transform.rotation.x > 0)
         {
 
-            if (transform.rotation.x >= 0.45 && transform.rotation.x < 1)
+            if (transform.rotation.x >= 1 && transform.rotation.x < 1.5)
             {
                 transform.RotateAround(Vector3.zero, Vector3.left, 1);
                 transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
-            if (transform.rotation.x < 0.45 && transform.rotation.x > 0)
+            if (transform.rotation.x < 1 && transform.rotation.x > .5)
             {
                 transform.RotateAround(Vector3.zero, Vector3.left, -1);
                 transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
@@ -204,12 +210,12 @@ public class PivotRotation : MonoBehaviour
         }
         else if (transform.rotation.x < 0)
         {
-            if (transform.rotation.x <= -0.45 && transform.rotation.x > -1)
+            if (transform.rotation.x <= -1 && transform.rotation.x > -1.5)
             {
                 transform.RotateAround(Vector3.zero, Vector3.left, -1);
                 transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
             }
-            if (transform.rotation.x > -0.45 && transform.rotation.x < 0)
+            if (transform.rotation.x > -1 && transform.rotation.x < -.5)
             {
 
                 transform.RotateAround(Vector3.zero, Vector3.left, 1);
