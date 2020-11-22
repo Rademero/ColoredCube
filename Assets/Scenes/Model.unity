@@ -26399,9 +26399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b548a3129a1964249a434e079f9e563a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivotD: {fileID: 278062880}
-  pivotC: {fileID: 1531106679}
-  pivotU: {fileID: 146094031}
+  pivotD: {fileID: 1265565830}
+  pivotF: {fileID: 1661091079}
+  pivotU: {fileID: 1248911915}
+  pivotR: {fileID: 1984670878}
+  pivotL: {fileID: 1793113423}
+  pivotB: {fileID: 2025964202}
 --- !u!1 &2108770773
 GameObject:
   m_ObjectHideFlags: 0

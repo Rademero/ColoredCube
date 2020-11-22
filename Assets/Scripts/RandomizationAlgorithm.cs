@@ -11,16 +11,25 @@ public class RandomizationAlgorithm : MonoBehaviour
 
     Vector3 mouse;
 
-    //private PivotRotation pivot;
+    private PivotRotation pivot;
+    // Down
     public PivotRotation pivotD;
-    public PivotRotation pivotC;
+    // Front
+    public PivotRotation pivotF;
+    // Up
     public PivotRotation pivotU;
+    // Right
+    public PivotRotation pivotR;
+    // Left
+    public PivotRotation pivotL;
+    // Back
+    public PivotRotation pivotB;
     List<GameObject> activeSide;
     private CubeState cubeState;
 
     void Start()
     {
-        //pivot = FindObjectOfType<PivotRotation>();
+        pivot = FindObjectOfType<PivotRotation>();
         cubeState = FindObjectOfType<CubeState>();
     }
 
@@ -114,7 +123,7 @@ public class RandomizationAlgorithm : MonoBehaviour
         }
 
         activeSide = cubeState.front;
-        pivotD.randomRotate(activeSide, mouse);
+        pivotU.randomRotate(activeSide, mouse);
 
     }
 
