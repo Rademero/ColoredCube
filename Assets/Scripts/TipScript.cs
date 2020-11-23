@@ -11,7 +11,7 @@ public class TipScript : MonoBehaviour
     int timeAtChange = 0;
 
     const int DELAY = 20;   //Determines how many seconds between a tip change.
-    const int NUM_TIPS = 3;
+    const int NUM_TIPS = 9;
 
     // Start is called before the first frame update
     void Start()
@@ -46,13 +46,23 @@ public class TipScript : MonoBehaviour
         switch (random)
         {
             case 1:
-                return "Testing, Testing";
+                return "The Rubik's Cube was originally called \"the magic cube\" ";
             case 2:
-                return "Hello there!";
+                return "The Rubik's Cube was created in 1974";
             case 3:
-                return "This should be a tip...";
-            default:
-                return "Something went wrong... the number generated was: " + random;
+                return "The center piece is the piece in the middle of each side; it's a good idea to solve only one side first";
+            case 4:
+                return "Corner pieces are the pieces diagonal to the center piece";
+            case 5:
+                return "The edge pieces are the pieces connected to the center";
+            case 6:
+                return "A good way to start is solving the edge pieces first";
+            case 7:
+                return "Solving edge pieces allow you to get a cross (usually referred to as the white cross)";
+            case 8:
+                return "Solve multiple edges at once";
+            case 9:
+                return "Arrange the remaining colors if you've solved an edge";
         }
     }
 }
