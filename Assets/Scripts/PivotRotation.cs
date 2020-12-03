@@ -19,6 +19,7 @@ public class PivotRotation : MonoBehaviour
     private CubeState cubeState;
     public Transform Center;
     public Vector3 ogPositon = new Vector3();
+    public Transform center;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class PivotRotation : MonoBehaviour
     
         if (dragging)
         {
+            
             SpinSide(activeSide);
             if (Input.GetMouseButtonUp(0))
             {
