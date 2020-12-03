@@ -63,6 +63,8 @@ public class TipScript : MonoBehaviour
                 return "Solve multiple edges at once";
             case 9:
                 return "Arrange the remaining colors if you've solved an edge";
+            default:
+                return "You generated a value outside the range of tips. That isn't supposed to happen. The number you generated was " + random + "and NUM_TIPS is " + NUM_TIPS;
         }
     }
 }
