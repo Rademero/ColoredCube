@@ -19,7 +19,7 @@ public class PivotRotation : MonoBehaviour
     private CubeState cubeState;
     public Transform Center;
     public Vector3 ogPositon = new Vector3();
-
+    public int stuckCounter;
     private int forceAuto;
 
     // Start is called before the first frame update
@@ -52,7 +52,8 @@ public class PivotRotation : MonoBehaviour
         }
         if (autoRotating)
         {
-           AutoRotate();
+           // stuckCounter = 0;
+            AutoRotate();
         }
     }
 
@@ -95,7 +96,7 @@ public class PivotRotation : MonoBehaviour
             transform.RotateAround(Center.position, Vector3.right, rotation.x);
 
         }
-
+        stuckCounter = 0;
 
         //  transform.Rotate(rotation, Space.Self);
 
@@ -120,6 +121,7 @@ public class PivotRotation : MonoBehaviour
 
         targetQuaternion.eulerAngles = vector;
         autoRotating = true;
+       // stuckCounter = 0;
     }
 
     public void AutoRotate()
@@ -133,11 +135,11 @@ public class PivotRotation : MonoBehaviour
         if (transform.rotation.z > 0)
         {
            
-            if (transform.rotation.z >= 0.45 && transform.rotation.z < 1)
+            if (transform.rotation.z > 0.4500000000 && transform.rotation.z < 1.00)
             {
                 transform.RotateAround(Center.position, Vector3.forward, 1);
             }
-            if (transform.rotation.z <= 0.45 && transform.rotation.z > 0)
+            if (transform.rotation.z < 0.4500000000 && transform.rotation.z > 0.00)
             {
                 transform.RotateAround(Center.position, Vector3.forward, -1);
             }
@@ -145,11 +147,11 @@ public class PivotRotation : MonoBehaviour
         }
         else if (transform.rotation.z < 0)
         {
-            if (transform.rotation.z <= -0.45 && transform.rotation.z > -1)
+            if (transform.rotation.z < -0.45000000 && transform.rotation.z > -1.00)
             {
                 transform.RotateAround(Center.position, Vector3.forward, -1);
             }
-            if (transform.rotation.z >= -0.45 && transform.rotation.z < 0)
+            if (transform.rotation.z > -0.45000000 && transform.rotation.z < 0.00)
             {
 
                 transform.RotateAround(Center.position, Vector3.forward, 1);
@@ -158,11 +160,11 @@ public class PivotRotation : MonoBehaviour
         //Up and Down auto rotate
         if (transform.rotation.y > 0)
         {
-            if (transform.rotation.y >= 0.45 && transform.rotation.y < 1)
+            if (transform.rotation.y > 0.450000000 && transform.rotation.y < 1.00)
             {
                 transform.RotateAround(Center.position, Vector3.up, 1);
             }
-            if (transform.rotation.y <= 0.45 && transform.rotation.y > 0)
+            if (transform.rotation.y < 0.450000000 && transform.rotation.y > 0.00)
             {
                 transform.RotateAround(Center.position, Vector3.up, -1);
             }
@@ -170,11 +172,11 @@ public class PivotRotation : MonoBehaviour
         }
         else if (transform.rotation.y < 0)
         {
-            if (transform.rotation.y <= -0.45 && transform.rotation.y > -1)
+            if (transform.rotation.y < -0.45000000 && transform.rotation.y > -1.00)
             {
                 transform.RotateAround(Center.position, Vector3.up, -1);
             }
-            if (transform.rotation.y >= -0.45 && transform.rotation.y < 0)
+            if (transform.rotation.y > -0.45000000 && transform.rotation.y < 0.00)
             {
 
                 transform.RotateAround(Center.position, Vector3.up, 1);
@@ -184,11 +186,11 @@ public class PivotRotation : MonoBehaviour
         if (transform.rotation.x > 0)
         {
 
-            if (transform.rotation.x >= 0.45 && transform.rotation.x < 1)
+            if (transform.rotation.x > 0.45000000 && transform.rotation.x < 1.00)
             {
                 transform.RotateAround(Center.position, Vector3.right, 1);
             }
-            if (transform.rotation.x <= 0.45 && transform.rotation.x > 0)
+            if (transform.rotation.x < 0.450000000 && transform.rotation.x > 0.00)
             {
                 transform.RotateAround(Center.position, Vector3.right, -1);
 
@@ -197,25 +199,43 @@ public class PivotRotation : MonoBehaviour
         }
         else if (transform.rotation.x < 0)
         {
-            if (transform.rotation.x <= -0.45 && transform.rotation.x > -1)
+            if (transform.rotation.x < -0.4500000000 && transform.rotation.x > -1.00)
             {
                 transform.RotateAround(Center.position, Vector3.right, -1);
             }
-            if (transform.rotation.x >= -0.45 && transform.rotation.x < 0)
+            if (transform.rotation.x > -0.4500000000 && transform.rotation.x < 0.00)
             {
                 transform.RotateAround(Center.position, Vector3.right, 1);
             }
         }
+        stuckCounter++;
+        if(stuckCounter >= 90)
+        {
+            if(activeSide == cubeState.up || activeSide == cubeState.down)
+            {
+                    transform.RotateAround(Center.position, Vector3.up, 5);
+            }
+            if (activeSide == cubeState.left || activeSide == cubeState.right)
+            {
+                transform.RotateAround(Center.position, Vector3.right, 5);
+            }
+            if (activeSide == cubeState.front || activeSide == cubeState.back)
+            {
+                    transform.RotateAround(Center.position, Vector3.forward, 5);
+            }
+        }
 
-        print(Quaternion.Angle(transform.localRotation, targetQuaternion));
+        print(stuckCounter);
         float angle = Quaternion.Angle(transform.localRotation, targetQuaternion);
         if (angle <= 1 || (angle <= 91.5 && angle >= 89.5))
         {
+            //print("here");
             //transform.localRotation = targetQuaternion;
             cubeState.putDown(activeSide, transform.parent);
             readCube.ReadState();
             autoRotating = false;
             dragging = false;
+            stuckCounter = 0;
 
         }
         temp();
