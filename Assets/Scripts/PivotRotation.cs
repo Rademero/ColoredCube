@@ -66,7 +66,6 @@ public class PivotRotation : MonoBehaviour
         if (side == cubeState.front) {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
             transform.RotateAround(Center.position, Vector3.forward, rotation.z);
-            transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
         }
         if (side == cubeState.up)
         {
@@ -207,7 +206,7 @@ public class PivotRotation : MonoBehaviour
             }
         }
 
-        print(Quaternion.Angle(transform.localRotation, targetQuaternion));
+        //print(Quaternion.Angle(transform.localRotation, targetQuaternion));
         float angle = Quaternion.Angle(transform.localRotation, targetQuaternion);
         if (angle <= 1 || (angle <= 91.5 && angle >= 89.5))
         {
@@ -218,11 +217,12 @@ public class PivotRotation : MonoBehaviour
             dragging = false;
 
         }
-        temp();
+        // This fixes the bug where update would call auto rotate too fast and a side would not end up locking in.
+        wait();
        
     }
 
-    IEnumerator temp()
+    IEnumerator wait()
     {
         yield return new WaitForSeconds(0.1f);
     }
@@ -231,14 +231,10 @@ public class PivotRotation : MonoBehaviour
     {
         rotation = Vector3.zero;
 
-        //print("Entered randomRotation in pivot.");
-        //print(side);
-
         if (side == cubeState.front)
         {
             rotation.z = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
             transform.RotateAround(Center.position, Vector3.forward, rotation.z);
-            transform.position.Set(ogPositon.x, ogPositon.y, ogPositon.z);
         }
         if (side == cubeState.up)
         {
@@ -254,28 +250,28 @@ public class PivotRotation : MonoBehaviour
         {
             rotation.y = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
             transform.RotateAround(Center.position, Vector3.up, rotation.y);
+
         }
         if (side == cubeState.left)
         {
-            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
-            transform.RotateAround(Center.position, Vector3.left, rotation.x);
+            rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * 1;
+            transform.RotateAround(Center.position, Vector3.right, rotation.x);
         }
         if (side == cubeState.right)
         {
             rotation.x = (mouseOffset.x + mouseOffset.y) * sensititvity * -1;
-            transform.RotateAround(Center.position, Vector3.left, rotation.x);
+            transform.RotateAround(Center.position, Vector3.right, rotation.x);
 
         }
-
-
-        RotateToRightAngle();
-        AutoRotate();
-        //transform.RotateAround(Vector3.zero, Vector3.forward, 1);
-
+    }
+    
+    public bool getAutoRotate()
+    {
+        return autoRotating;
     }
 
-    public List<GameObject> getActiveSide()
+    public Vector3 getCenter()
     {
-        return activeSide;
+        return Center.position;
     }
 }
