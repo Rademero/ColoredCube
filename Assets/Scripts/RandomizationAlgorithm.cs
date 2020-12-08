@@ -44,11 +44,11 @@ public class RandomizationAlgorithm : MonoBehaviour
         }
 
         // Used for testing purposes 
-        if (Input.GetKey("z"))
+        /*if (Input.GetKey("z"))
         {
             chooseSide();
             chooseCommand();
-        }
+        }*/
 
 
     }
