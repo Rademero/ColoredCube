@@ -50,7 +50,7 @@ public class MenuButtonScript : MonoBehaviour
     //Terminate the game
     public void QuitButton() {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;    //This line quits the editor, and is only here for testing purposes.
+        //UnityEditor.EditorApplication.isPlaying = false;    //This line quits the editor, and is only here for testing purposes.
     }
 
     public void ResumeButton() {
