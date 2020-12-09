@@ -1411,6 +1411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 2117946375}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &95188256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!65 &101807376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3423,6 +3425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!65 &251421357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11411,6 +11414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 101807374}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!4 &836366011
 Transform:
   m_ObjectHideFlags: 0
@@ -15419,6 +15423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 817381919}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1001 &1182587687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16820,6 +16825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 1950538605}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!4 &1346443044
 Transform:
   m_ObjectHideFlags: 0
@@ -20489,6 +20495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 726590455}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1676461721
 GameObject:
   m_ObjectHideFlags: 0
@@ -22189,6 +22196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 837788826}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!4 &1790072300
 Transform:
   m_ObjectHideFlags: 0
@@ -22224,6 +22232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1800451810
 GameObject:
   m_ObjectHideFlags: 0
@@ -24156,6 +24165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!65 &1950538607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25033,10 +25043,10 @@ RectTransform:
   m_Father: {fileID: 135178377}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 500}
+  m_SizeDelta: {x: -436, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011743972
 MonoBehaviour:
@@ -25075,7 +25085,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011743970}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1 &2031136111
 GameObject:
   m_ObjectHideFlags: 0
