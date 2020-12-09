@@ -1519,10 +1519,10 @@ RectTransform:
   m_Father: {fileID: 1655876519}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 500}
+  m_SizeDelta: {x: -436, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143098670
 MonoBehaviour:
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &162997430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,6 +3297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &293867736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7671,9 +7673,9 @@ RectTransform:
   m_Father: {fileID: 1655876519}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 231}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 2, y: -29}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595273278
@@ -16068,6 +16070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 146094027}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1250096357
 GameObject:
   m_ObjectHideFlags: 0
@@ -16468,6 +16471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 278062876}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1307457196
 GameObject:
   m_ObjectHideFlags: 0
@@ -19092,6 +19096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1535088641
 GameObject:
   m_ObjectHideFlags: 0
@@ -20475,6 +20480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 2137729356}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1666703332
 GameObject:
   m_ObjectHideFlags: 0
@@ -22786,6 +22792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 589597099}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1793375583
 GameObject:
   m_ObjectHideFlags: 0
@@ -25271,6 +25278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 631039168}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &1985710981
 GameObject:
   m_ObjectHideFlags: 0
@@ -25729,6 +25737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 0}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!114 &2025964202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25743,6 +25752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 602339682}
   ogPositon: {x: 0, y: 0, z: 0}
+  stuckCounter: 0
 --- !u!1 &2036175775
 GameObject:
   m_ObjectHideFlags: 0
